@@ -50,6 +50,12 @@
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="../UserSrc"/>
+									<listOptionValue builtIn="false" value="../App/control"/>
+									<listOptionValue builtIn="false" value="../App/sensor"/>
+									<listOptionValue builtIn="false" value="../App/system"/>
+									<listOptionValue builtIn="false" value="../App/utils"/>
+									<listOptionValue builtIn="false" value="../Modules/vl53l1/core/inc"/>
+									<listOptionValue builtIn="false" value="../Modules/vl53l1/platform/inc"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1585423486" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -76,9 +82,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="App"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Modules"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -128,9 +135,12 @@
 									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
 									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>
-									<listOptionValue builtIn="false" value="../Src"/>
-									<listOptionValue builtIn="false" value="../Src/vl53l1/core/inc"/>
-									<listOptionValue builtIn="false" value="../Src/vl53l1/platform/inc"/>
+									<listOptionValue builtIn="false" value="../App/control"/>
+									<listOptionValue builtIn="false" value="../App/sensor"/>
+									<listOptionValue builtIn="false" value="../App/system"/>
+									<listOptionValue builtIn="false" value="../App/utils"/>
+									<listOptionValue builtIn="false" value="../Modules/vl53l1/core/inc"/>
+									<listOptionValue builtIn="false" value="../Modules/vl53l1/platform/inc"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.663136878" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -157,9 +167,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="App"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Modules"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -28,12 +28,12 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "../../Src/Motor.h"
-#include "../../Src/debug.h"
-#include "../../Src/power_manager.h"
-#include "../../Src/motion_sensor.h"
-#include "../../Src/imu_fusion.h"
-#include "../../Src/servo.h"
+#include "Motor.h"
+#include "debug.h"
+#include "power_manager.h"
+#include "motion_sensor.h"
+#include "imu_fusion.h"
+#include "servo.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
