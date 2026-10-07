@@ -195,8 +195,8 @@ uint16_t ICM20948_Init()
 	if(HAL_I2C_Mem_Write(&hi2c1, ICM20948_ADDR, PWR_MGMT_1, I2C_MEMADD_SIZE_8BIT, &data, 1, 100)) {
 		return ERROR_IMU_RESET;
 	}
-//  ICM20948_WriteReg(PWR_MGMT_1, 0x80);
 	HAL_Delay(150);
+//	HAL_Delay(2000);
 	uint8_t whoami_cnt= 0;
 	do{
 		HAL_Delay(10);
@@ -204,7 +204,6 @@ uint16_t ICM20948_Init()
 	}while(whoami_cnt < 5);
 
   // Wake up & Auto clock
-//  ICM20948_WriteReg(PWR_MGMT_1, 0x01);
 	data = 0x01;
 	if(HAL_I2C_Mem_Write(&hi2c1, ICM20948_ADDR, PWR_MGMT_1, I2C_MEMADD_SIZE_8BIT, &data, 1, 100)) {
 		return ERROR_IMU_WAKEUP;
@@ -215,8 +214,8 @@ uint16_t ICM20948_Init()
 	if(ICM20948_Sel_Bank(2))
 		return ERROR_IMU_BANK_SEL;
 
-	// Gyro: +-250 dps , DLPF enable
-	data = (0x00 << 1) | 0x01;
+	// Gyro: +-250 dps , 50Hz DLPF
+	data = (0x00 << 5) | (3 << 3) | (0x00 << 1) | 0x01;
 	if(ICM20948_WriteReg(GYRO_CONFIG_1, data))
 		return ERROR_IMU_GYRO_INIT;
 
@@ -225,13 +224,15 @@ uint16_t ICM20948_Init()
 	if(ICM20948_WriteReg(GYRO_SMPLRT_DIV, data))
 		return ERROR_IMU_GYRO_INIT;
 
-	// Accel: ±2g
-	data = (0x00 << 1) | 0x01;
+	// Accel: ±2g + DLPF 50Hz
+	// FS = 0 (±2g)
+	// DLPF = 3 (≈50Hz)
+	// enable DLPF
+	data = (0x00 << 5) | (3 << 3) | (0x00 << 1) | 0x01;
 	if(ICM20948_WriteReg(ACCEL_CONFIG, data))
 		return ERROR_IMU_ACCEL_INIT;
 
 	// Accel: 100Hz
-//	uint16_t acc_div = 11;
 	uint16_t acc_div = 10;  // 1125/(1+10) = 102 HZ
 	uint8_t high = (acc_div >> 8) & 0xFF;
 	uint8_t low  = acc_div & 0xFF;

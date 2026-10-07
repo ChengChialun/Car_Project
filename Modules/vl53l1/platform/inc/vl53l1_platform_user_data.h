@@ -64,8 +64,19 @@ typedef struct {
 
 	uint32_t  new_data_ready_poll_duration_ms;
 		/*!< New data ready poll duration in ms - for debug */
+
+	uint8_t	i2c_channel;
+		/*!< for TCA9548A select channel */
+
+	int16_t	distance;
+		/*!< for TCA9548A select channel */
 } VL53L1_Dev_t;
 
+#define VL53L1_Dev_DEFAULT (VL53L1_Dev_t){ 		\
+    .i2c_slave_address = VL53L1X_ADDR,      	\
+    .comms_type = VL53L1_I2C,             		\
+    .comms_speed_khz = DOF_I2C_SPEED        	\
+}
 
 /**
  * @brief   Declare the device Handle as a pointer of the structure @a VL53L1_Dev_t.
@@ -83,8 +94,8 @@ typedef VL53L1_Dev_t *VL53L1_DEV;
  * like PALDevDataGet(FilterData.field)[i] or
  * PALDevDataGet(FilterData.MeasurementIndex)++
  */
-#define PALDevDataGet(Dev, field) (Dev->Data.field)
-
+//#define PALDevDataGet(Dev, field) (Dev->Data.field)
+#define VL53L1DevDataGet(Dev, field) (Dev->Data.field)
 
 /**
  * @def PALDevDataSet(Dev, field, data)
@@ -93,8 +104,8 @@ typedef VL53L1_Dev_t *VL53L1_DEV;
  * @param field     ST structure field name
  * @param data      Data to be set
  */
-#define PALDevDataSet(Dev, field, data) ((Dev->Data.field) = (data))
-
+//#define PALDevDataSet(Dev, field, data) ((Dev->Data.field) = (data))
+#define VL53L1DevDataSet(Dev, field, data) ((Dev->Data.field) = (data))
 
 /**
  * @def VL53L1DevStructGetLLDriverHandle

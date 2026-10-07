@@ -8,6 +8,7 @@
 *	10.5V ~ 10.0V	| PROTECTION_POWER_STATUS	| PWM limitation , Inform , blinking led , buzzer
 *	< 10.0V				| STOP_POWER_STATUS				| Stop
 ****************************************************/
+Comm_Frame_t sys_voltage;
 
 float Get_Voltage(){
 	HAL_ADC_Start(&hadc1);
@@ -48,23 +49,32 @@ float Get_Power_Limit()
     return limit;
 }
 
+void Power_Manager_Init()
+{
+	sys_voltage.topic = SENSOR_DATA;
+	sys_voltage.type = VOLTAGE;
+	memset(sys_voltage.payload , '0', sizeof(filtered_voltage));
+	sys_voltage.len = sizeof(filtered_voltage);
+}
+
 void Power_Manager()
 {
 	static uint8_t low_voltage_counter = 0;
 	static uint8_t stop_latch = 0;
-
-	Get_Voltage();
-
+	static float vol;
+	vol = Get_Voltage();
+	memcpy(sys_voltage.payload , &vol, sizeof(vol));
+	send_packet(&sys_voltage);
 	if(stop_latch){
 		PowerStatus = STOP_POWER_STATUS;
 		return;
-  }
+	}
 	
-	if (filtered_voltage >= 10.5f){
+	if (vol >= 10.5f){
 		PowerStatus = NORMAL_POWER_STATUS;
 		low_voltage_counter = 0;
 	}
-	else if (filtered_voltage > 10.0f){
+	else if (vol > 10.0f){
 		PowerStatus = PROTECTION_POWER_STATUS;
 		low_voltage_counter = 0;
 	}

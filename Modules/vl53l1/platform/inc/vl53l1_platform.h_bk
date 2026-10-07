@@ -48,8 +48,6 @@ extern "C"
  * @brief  All end user OS/platform/application porting
  */
 
-
-
 /**
  * @brief  Initialise platform comms.
  *
@@ -92,12 +90,11 @@ VL53L1_Error VL53L1_CommsClose(
  * @return  "Other error code"    See ::VL53L1_Error
  */
 
-VL53L1_Error VL53L1_WriteMulti(
+uint16_t VL53L1_WriteMulti(
 		VL53L1_Dev_t *pdev,
 		uint16_t      index,
 		uint8_t      *pdata,
 		uint32_t      count);
-
 
 /**
  * @brief  Reads the requested number of bytes from the device
@@ -111,12 +108,11 @@ VL53L1_Error VL53L1_WriteMulti(
  * @return  "Other error code"    See ::VL53L1_Error
  */
 
-VL53L1_Error VL53L1_ReadMulti(
+uint16_t VL53L1_ReadMulti(
 		VL53L1_Dev_t *pdev,
 		uint16_t      index,
 		uint8_t      *pdata,
 		uint32_t      count);
-
 
 /**
  * @brief  Writes a single byte to the device

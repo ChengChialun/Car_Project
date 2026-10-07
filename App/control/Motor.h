@@ -47,7 +47,7 @@ extern Encoder_t rEncoder, lEncoder;
 /*
 *	Regarding Motor
 */
-void Mortor_Controler(TIM_HandleTypeDef *tim, unsigned int channel, uint8_t  direction, float percent);
+void Mortor_Controler(TIM_HandleTypeDef *tim, unsigned int channel, enum Direction dir, float percent);
 void Motor_Init();
 void Stop_Motor();
 void Set_Pwm_Duty_Percent(TIM_HandleTypeDef *tim,unsigned int channel, float percent);

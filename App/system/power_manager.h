@@ -3,6 +3,7 @@
 #include "main.h"
 #include "ADC.h"
 #include "Motor.h"
+#include "comm.h"
 
 #define LOW_POWER_TIMES 5
 extern float voltage;
@@ -18,4 +19,5 @@ enum power_status{
 float Get_Voltage();
 float Get_Power_Limit();
 void Power_Manager();
+void Power_Manager_Init();
 #endif

@@ -6,9 +6,16 @@
 #include "usart.h"
 #include "stm32f4xx_hal_uart.h"
 
-#define DEBUG_MODE 1
-#define ENABLE_IMU 0
+#define DEBUG_MODE			1
+#define ENABLE_IMU			1
+#define ENABLE_TOF			1
+#define ENABLE_SONIC		1
+#define ENABLE_CONF			0
+#define	ENABLE_EXT_FLASH	0
+#define ENABLE_COMM			1
 int fputc(int ch, FILE *f);
 void Debug_Unfreeze();
 void Set_Run_On_Ram();
+void Debug_Print();
+void I2C__Dev_Discovery(I2C_HandleTypeDef *hi2c);
 #endif

@@ -43,6 +43,7 @@ extern "C" {
 /* USER CODE BEGIN EC */
 //Error code is 2 bytes
 #define OK							0
+#define SYSTEM_ERROR				1
 #define ERROR_I2C					10001
 #define ERROR_I2C_BUSY  			10002
 
@@ -72,6 +73,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define FRONT_RIGHT_TOF_Pin GPIO_PIN_2
+#define FRONT_RIGHT_TOF_GPIO_Port GPIOC
+#define FRONT_RIGHT_TOF_EXTI_IRQn EXTI2_IRQn
+#define FRONT_LEFT_TOF_Pin GPIO_PIN_3
+#define FRONT_LEFT_TOF_GPIO_Port GPIOC
+#define FRONT_LEFT_TOF_EXTI_IRQn EXTI3_IRQn
 #define ADC_VCC_Pin GPIO_PIN_4
 #define ADC_VCC_GPIO_Port GPIOA
 #define STBY_Pin GPIO_PIN_5
@@ -84,11 +91,21 @@ void Error_Handler(void);
 #define BIN1_GPIO_Port GPIOB
 #define BIN2_Pin GPIO_PIN_1
 #define BIN2_GPIO_Port GPIOB
+#define Front_Ultrasonic_Pin GPIO_PIN_12
+#define Front_Ultrasonic_GPIO_Port GPIOB
+#define Rear_Ultrasonic_Pin GPIO_PIN_13
+#define Rear_Ultrasonic_GPIO_Port GPIOB
+#define REAR_RIGHT_TOF_Pin GPIO_PIN_14
+#define REAR_RIGHT_TOF_GPIO_Port GPIOB
+#define REAR_RIGHT_TOF_EXTI_IRQn EXTI15_10_IRQn
+#define REAR_LEFT_TOF_Pin GPIO_PIN_15
+#define REAR_LEFT_TOF_GPIO_Port GPIOB
+#define REAR_LEFT_TOF_EXTI_IRQn EXTI15_10_IRQn
 #define FLASH_CS_Pin GPIO_PIN_15
 #define FLASH_CS_GPIO_Port GPIOA
-#define INT_DOF_Pin GPIO_PIN_6
-#define INT_DOF_GPIO_Port GPIOB
-#define INT_DOF_EXTI_IRQn EXTI9_5_IRQn
+#define IMU_INT_Pin GPIO_PIN_6
+#define IMU_INT_GPIO_Port GPIOB
+#define IMU_INT_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
 
